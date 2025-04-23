@@ -1,0 +1,27 @@
+trigger:
+- main  # or your branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'YourServiceConnectionName'  # from when you connected SonarCloud
+    organization: 'your-org-name'  # found in your SonarCloud URL
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'your-project-key'
+    cliProjectName: 'your-project-name'
+
+- script: |
+    echo "Your build commands go here"
+    npm install
+    npm run build
+  displayName: 'Build Project'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
