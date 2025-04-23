@@ -7,12 +7,12 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'YourServiceConnectionName'  # from when you connected SonarCloud
-    organization: 'your-org-name'  # found in your SonarCloud URL
+    SonarCloud: 'SonarCloud_MyProject'  # from when you connected SonarCloud
+    organization: 'swatisinha8403'  # found in your SonarCloud URL
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'your-project-key'
-    cliProjectName: 'your-project-name'
+    cliProjectKey: 'swatisinha8403_selenium-demo'
+    cliProjectName: 'selenium demo'
 
 - script: |
     echo "Your build commands go here"
