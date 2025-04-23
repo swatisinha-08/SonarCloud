@@ -26,6 +26,4 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-    extraProperties: |
-      sonar.verbose=true
 
